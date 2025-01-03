@@ -1,0 +1,23 @@
+.view-details-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .view-details-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  .view-details-btn:active {
+    background-color: #003f7f;
+    transform: scale(0.98);
+  }
+  

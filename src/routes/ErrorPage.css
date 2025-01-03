@@ -1,0 +1,40 @@
+#error-page {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+  }
+  
+  #error-page h1 {
+    font-size: 4rem;
+    color: #ff4d4d;
+    margin-bottom: 20px;
+  }
+  
+  #error-page p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  #error-page i {
+    font-style: italic;
+    color: #777;
+  }
+  
+  #error-page p:last-child {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  

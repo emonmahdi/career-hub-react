@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+import "./JobCard.css";
+
 /* eslint-disable react/prop-types */
 const JobsCard = ({ job }) => {
-  const { job_title, company_name, logo, location, salary } = job;
+  const { id, job_title, company_name, logo, location, salary } = job;
   return (
     <div className="border rounded-lg shadow-md p-4 bg-white hover:shadow-lg transition-shadow duration-300">
       <img
@@ -60,6 +63,11 @@ const JobsCard = ({ job }) => {
           </svg>
           {salary}
         </span>
+      </div>
+      <div>
+        <Link to={`/job/${id}`} className="view-details-btn">
+          View Details
+        </Link>
       </div>
     </div>
   );
