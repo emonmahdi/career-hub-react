@@ -16,7 +16,9 @@
   
   .job-details {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: center;
     gap: 10px; /* Space between job details */
   }
   

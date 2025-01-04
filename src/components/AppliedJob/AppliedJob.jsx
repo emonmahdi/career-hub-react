@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { getStoredJobApplication } from "../../utility/localstorage";
 import "./AppliedJob.css";
 
@@ -41,7 +41,7 @@ const AppliedJob = () => {
 
   return (
     <div>
-      <h2>Applied Job : {appliedJob?.length}</h2>
+      <h2>Applied Job : {displayJobs?.length}</h2>
       <div className="text-right">
         <details className="dropdown">
           <summary className="btn m-1">Filter</summary>
@@ -72,19 +72,31 @@ const AppliedJob = () => {
           displayJobs.map((job) => (
             <div key={job?.id} className="job-card">
               <div className="job-details">
-                <h3 className="job-title">{job?.job_title}</h3>
-                <p>
-                  <strong>Salary:</strong> {job?.salary}
-                </p>
-                <p>
-                  <strong>Location:</strong> {job?.location}
-                </p>
-                <p>
-                  <strong>Type:</strong> {job?.job_type}
-                </p>
-                <p>
-                  <strong>Work Mode:</strong> {job?.remote_or_onsite}
-                </p>
+                <div className="flex items-center gap-3">
+                  <div>
+                    <img src={job.logo} className="w-[100px]" alt="" />
+                  </div>
+                  <div>
+                    <h3 className="job-title">{job?.job_title}</h3>
+                    <p>
+                      <strong>Salary:</strong> {job?.salary}
+                    </p>
+                    <p>
+                      <strong>Location:</strong> {job?.location}
+                    </p>
+                    <p>
+                      <strong>Type:</strong> {job?.job_type}
+                    </p>
+                    <p>
+                      <strong>Work Mode:</strong> {job?.remote_or_onsite}
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <Link to={`/job/${job.id}`} className="view-details-btn">
+                    View Details
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
