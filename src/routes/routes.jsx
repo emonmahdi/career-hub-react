@@ -3,6 +3,7 @@ import Root from "../components/Root/Root";
 import Home from "../components/Home/Home";
 import ErrorPage from "./ErrorPage";
 import JobDetails from "../components/FeaturedJobs/JobDetails";
+import AppliedJob from "../components/AppliedJob/AppliedJob";
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +14,11 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/applied-job",
+        element: <AppliedJob />,
+        loader: () => fetch("../jobs.json"),
       },
       {
         path: "/job/:id",
