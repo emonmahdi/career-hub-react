@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { getStoredJobApplication } from "../../utility/localstorage";
 import "./AppliedJob.css";
+import { Helmet } from "react-helmet-async";
 
 const AppliedJob = () => {
   const jobs = useLoaderData();
@@ -41,6 +42,11 @@ const AppliedJob = () => {
 
   return (
     <div>
+      <div>
+        <Helmet>
+          <title>Applied Job</title>
+        </Helmet>
+      </div>
       <h2>Applied Job : {displayJobs?.length}</h2>
       <div className="text-right">
         <details className="dropdown">
