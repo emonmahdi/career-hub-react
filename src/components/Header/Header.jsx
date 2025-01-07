@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { useAuth } from "../../AuthProvider/AuthProvider";
 
 const links = (
   <>
@@ -15,6 +16,9 @@ const links = (
 );
 
 const Header = () => {
+  const { user, logout } = useAuth();
+  const email = user?.email;
+  console.log(email);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -42,13 +46,25 @@ const Header = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Career Hub</a>
+        <a className="btn btn-ghost text-xl">Career Hub </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Start Now!</a>
+        <div>
+          <p>{user ? email : ""}</p>
+        </div>
+        {email ? (
+          <button onClick={logout} className="btn">
+            {" "}
+            Logout
+          </button>
+        ) : (
+          <Link className="btn" to="/register">
+            Sign Up
+          </Link>
+        )}
       </div>
     </div>
   );
