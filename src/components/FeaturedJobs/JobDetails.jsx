@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { saveJobApplication } from "../../utility/localstorage";
 import { Helmet } from "react-helmet-async";
@@ -6,6 +6,9 @@ import { Helmet } from "react-helmet-async";
 const JobDetails = () => {
   const jobs = useLoaderData();
   const { id } = useParams();
+
+  const navigate = useNavigate();
+
   console.log(id);
   const jobId = parseInt(id);
   const job = jobs.find((job) => job.id === jobId);
@@ -13,6 +16,7 @@ const JobDetails = () => {
   const handleApply = () => {
     saveJobApplication(jobId);
     toast("You have applies successfully");
+    navigate(`/job/${id}`);
   };
 
   return (

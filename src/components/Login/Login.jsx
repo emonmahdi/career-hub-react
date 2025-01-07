@@ -2,7 +2,7 @@
 import { useState } from "react";
 // import { useAuth } from './AuthContext';
 import "./Login.css"; // Import the CSS file
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../AuthProvider/AuthProvider";
 
 function Login() {
@@ -13,6 +13,9 @@ function Login() {
   const [success, setSuccess] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location?.state?.from?.pathname || "/";
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -32,7 +35,7 @@ function Login() {
       setError("");
       setEmail("");
       setPassword("");
-      navigate("/");
+      navigate(from, { replace: true });
     } catch (err) {
       setError("Failed to log in. Please check your credentials.", err.message);
       setSuccess("");
