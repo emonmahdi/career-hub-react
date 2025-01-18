@@ -20,7 +20,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/applied-job",
-        element: <AppliedJob />,
+        element: (
+          <PrivateRoute>
+            <AppliedJob />
+          </PrivateRoute>
+        ),
         loader: () => fetch("../jobs.json"),
       },
       {
